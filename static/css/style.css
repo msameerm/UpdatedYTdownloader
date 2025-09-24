@@ -1,0 +1,88 @@
+:root {
+    --neon-blue: #00BFFF;
+    --neon-pink: #FF1493;
+    --dark-bg: #121212;
+    --glass-bg: rgba(28, 28, 32, 0.75);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--dark-bg);
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+.navbar {
+    height: 72px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+}
+.logo {
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+    animation: pulse 4s infinite ease-in-out;
+}
+
+.hero-section {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.input-container {
+    max-width: 700px;
+}
+#url-input:focus {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.video-card {
+    border: 1px solid var(--border-color);
+    background: var(--glass-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 10px var(--neon-pink);
+}
+.video-card .card-title {
+    font-size: 0.9rem;
+    height: 2.7em; /* Approx 2 lines */
+    overflow: hidden;
+}
+.card-img-top {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+.video-progress {
+    height: 5px !important;
+}
+
+.download-dock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    border-top: 1px solid var(--border-color);
+    transform: translateY(100%);
+    transition: transform 0.4s ease-in-out;
+}
+.download-dock.show {
+    transform: translateY(0);
+}
+.progress-bar {
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    transition: width 0.5s ease-out !important;
+}
+
+@keyframes pulse {
+    0% { text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); }
+    50% { text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink); }
+    100% { text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); }
+}
